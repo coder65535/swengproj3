@@ -11,19 +11,41 @@ package com.swenjproj3;
  */
 public class TestManager
 {
+    private TestMode mode;
+    public static TestManager getInstance()
+    {
+        return TestManagerHolder.INSTANCE;
+    }
     
     private TestManager()
     {
+        mode = TestMode.ADDITION;
     }
     
     public String getNewQuestion()
     {
-        return "";
+        switch(mode)
+        {
+            case ADDITION:
+                return "5+3";
+            case SUBTRACTION:
+                return "3-2";
+            default:
+                return "Error: Mode not implemented";
+        }
     }
     
-    public boolean tryAnswer()
+    public boolean tryAnswer(int guess)
     {
-        return true;
+        switch(mode)
+        {
+            case ADDITION:
+                return 8 == guess;
+            case SUBTRACTION:
+                return 1 == guess;
+            default:
+                return false;
+        }
     }
     
     public double getPercent()
@@ -31,14 +53,13 @@ public class TestManager
         return 1;
     }
     
-    public static TestManager getInstance()
+    public void setMode(TestMode mode)
     {
-        return TestManagerHolder.INSTANCE;
+        this.mode = mode;
     }
     
     private static class TestManagerHolder
     {
-
         private static final TestManager INSTANCE = new TestManager();
     }
 }
