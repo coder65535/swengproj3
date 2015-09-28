@@ -11,6 +11,6 @@ package com.swenjproj3;
  */
 public interface QuestionGenerator
 {
-    public String getQuestion();
+    public String getQuestion(int min, int max);
     public int getAnswer();
 }
