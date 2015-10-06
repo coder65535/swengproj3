@@ -7,14 +7,8 @@ package com.swenjproj3;
 
 /**
  *
- * @author Abhijit Mayer
+ * @author Asus
  */
-public class Subtraction {
-    public int sub(int first, int second){
-        int answer;
-        answer = (first - second);
-        
-        return answer;
-    }
+public class MultiplicationGenerator {
     
 }
