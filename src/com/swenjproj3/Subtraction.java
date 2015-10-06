@@ -7,15 +7,14 @@ package com.swenjproj3;
 
 /**
  *
- * @author
+ * @author Abhijit Mayer
  */
-public interface QuestionGenerator
-{
+public class Subtraction {
+    public int sub(int first, int second){
+        int answer;
+        answer = (first - second);
+        
+        return answer;
+    }
     
-    public String getQuestion(int min, int max);
-    public int getAnswer();
-   
-    
-    
-
 }
