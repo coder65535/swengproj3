@@ -11,7 +11,7 @@ import java.util.Random;
  *
  * @author Asus
  */
-public class implements QuestionGenerator AdditionGenerator {
+public class AdditionGenerator implements QuestionGenerator  {
       int ans;
 
     @Override
