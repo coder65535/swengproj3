@@ -31,6 +31,7 @@ public class Main {
 
             switch (v) {
                 case 1:
+                {
                     //get addition problems 
                     TestManager.getInstance().setMode(TestMode.ADDITION);
                     String question = TestManager.getInstance().getNewQuestion();
@@ -48,13 +49,26 @@ public class Main {
                     
                     //Loop until they quit
                     break;
+            }
                 case 2:
+                {
                     //get subratction problems
                     TestManager.getInstance().setMode(TestMode.SUBTRACTION);
-                    System.out.println("What is x - y");
+                    String question = TestManager.getInstance().getNewQuestion();
+                    System.out.println(question);
+                    int input = kbd.nextInt();
+                    kbd.nextLine();
+                    while(!TestManager.getInstance().tryAnswer(input))
+                    {
+                        //handle wrong
+                        System.out.println("Wrong");
+                        input = kbd.nextInt();
+                        kbd.nextLine();
+                    }
+                    System.out.println("Right");
 
                     break;
-
+                }
                 case 3:
                     double score = TestManager.getInstance().getPercent()*100;
                     long pct = Math.round(score);
@@ -63,7 +77,8 @@ public class Main {
 
                 case 4:
                     //quit
-                    break;
+                    System.exit(0);
+                  
 
                 default:
                     System.out.println("");
