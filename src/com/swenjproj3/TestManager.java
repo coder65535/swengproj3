@@ -11,51 +11,42 @@ package com.swenjproj3;
  */
 public class TestManager
 {
+    private QuestionGenerator gen;
     private TestMode mode;
+    private int hits;
+    private int tries;
     public static TestManager getInstance()
     {
         return TestManagerHolder.INSTANCE;
     }
     
-    private TestManager()
-    {
-        mode = TestMode.ADDITION;
-    }
-    
     public String getNewQuestion()
     {
-        switch(mode)
-        {
-            case ADDITION:
-                return "5+3";
-            case SUBTRACTION:
-                return "3-2";
-            default:
-                return "Error: Mode not implemented";
-        }
+        return gen.getQuestion(-10, 10);
     }
     
     public boolean tryAnswer(int guess)
     {
-        switch(mode)
+        tries++;
+        if (gen.getAnswer() == guess)
         {
-            case ADDITION:
-                return 8 == guess;
-            case SUBTRACTION:
-                return 1 == guess;
-            default:
-                return false;
+            hits++;
         }
+        return gen.getAnswer() == guess;
     }
     
     public double getPercent()
     {
-        return 1;
+        return 100.0*hits/tries;
     }
     
     public void setMode(TestMode mode)
     {
-        this.mode = mode;
+        switch(mode)
+        {
+            case ADDITION:
+                this.gen = new AdditionGenerator();
+        }
     }
     
     private static class TestManagerHolder
