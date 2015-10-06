@@ -21,7 +21,7 @@ public class MultiplicationGenerator implements QuestionGenerator {
         int a = rand.nextInt(max-min+1)+min;
         int b = rand.nextInt(max-min+1)+min;
         ans = a*b;
-        return "What is "+a+" * "+b+"?";
+        return "What is "+a+" X "+b+"?";
     }
 
     @Override

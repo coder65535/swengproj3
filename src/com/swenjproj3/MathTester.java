@@ -11,20 +11,22 @@ package com.swenjproj3;
  */
 class MathTester {
     public static void main(String[] args){
-        int first = 50;
+        int first = -50;
         int second = 58;
         
-        Subtraction sub = new Subtraction();
-        System.out.println(sub.sub(first, second));
+        SubtractionGenerator sub = new SubtractionGenerator();
+        System.out.println(sub.getQuestion(first, second));
+        System.out.println(sub.getAnswer());
         
         
-        Addition add = new Addition();
-        System.out.println(add.add(first, second));
+        AdditionGenerator add = new AdditionGenerator();
+        System.out.println(add.getQuestion(first, second));
+        System.out.println(add.getAnswer());
         
         
-        Questions question = new Questions();
-        System.out.println(question.getQuestion(first, second));
-        System.out.println(question.getAnswer());
+        MultiplicationGenerator mult = new MultiplicationGenerator();
+        System.out.println(mult.getQuestion(first, second));
+        System.out.println(mult.getAnswer());
         
         
     }
